@@ -16,6 +16,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+
+  <style>
+    .img-size-24 {
+      height: auto;
+      width: 24px;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -91,8 +98,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
           </div>
         </li>
+
         <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown" style="display: none; visibility: hidden;">
+        <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell"></i>
             <span class="badge badge-warning navbar-badge">15</span>
@@ -118,10 +126,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
         </li>
-        <li class="nav-item">
+
+        <li class="nav-item" style="display: none; visibility: hidden;">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
+        </li>
+
+        <!-- User Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <!-- <i class="far fa-user-circle mr-2"></i> -->
+            <img class="img-circle img-size-24 mr-2" src="{{ asset('img/user3-128x128.jpg') }}" alt="user-icon">
+            <span>Administrator</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+            <span class="dropdown-header">Logged at 15 minutes ago</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <span>User Profiles</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span>Change Password</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              <span>Logout</span>
+            </a>
+          </div>
         </li>
       </ul>
     </nav>
@@ -139,12 +172,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
+              <h1 class="m-0">@yield('title')</h1>
             </div><!-- /.col -->
             <div class="col-sm-6 text-sm">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item active">@yield('title')</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -165,6 +198,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main Footer -->
     <x-admin-footer />
+
   </div>
   <!-- ./wrapper -->
 
